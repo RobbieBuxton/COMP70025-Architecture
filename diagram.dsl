@@ -2,17 +2,17 @@ workspace {
     model {
         user = person "User"
         phoneStaff = person "Ticket Sales Representative" {
-            user -> this "Books tickets over telephone with"
+            user -> this "Books tickets with" "over telephone"
         }
         officeStaff = person "Box Office Attendant" {
-            user -> this "Books tickets in person with"
+            user -> this "Books tickets with" "in person"
         }
 
         ticketSystem = softwareSystem "Royal Albert Hall Ticketing System" {
             webApp = container "Web Application" {
-                user -> this "Browses and books tickets online using"
-                phoneStaff -> this "Books tickets for a customer using"
-                officeStaff -> this "Books tickets for a customer using"
+                user -> this "Browses and books tickets online using" "via website"
+                phoneStaff -> this "Books tickets for a customer using" "via internal application"
+                officeStaff -> this "Books tickets for a customer using" "via internal application"
             }
 
             eventProgram = container "Program of Events" {
